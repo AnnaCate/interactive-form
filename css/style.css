@@ -9,14 +9,13 @@
 body,
 input,
 button {
- /* font-family: 'Roboto', sans-serif; */
- font-family: 'Raleway', sans-serif;
+ font-family: 'Roboto', sans-serif;
 }
 
 body {
   font: 1em/1.5;
-  color: #184f68;
-	background: #c3e3f1;
+  color: #3A4938;
+	background: #F0F2EF;
 }
 
 header {
@@ -24,7 +23,8 @@ header {
 }
 
 h1 {
-	font-size: 2.5em;
+	font-family: 'Bad Script', cursive;
+	font-size: 3em;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 	margin: 0;
 }
@@ -39,7 +39,10 @@ a {
 
 form {
 	padding: .875em 1.875em 1.875em;
-	background: #85b5ca;
+	background: #9AA598;
+	border-radius: 10px;
+	/* box-shadow sourced from https://www.w3schools.com/css/css3_shadows.asp */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 fieldset,
@@ -61,7 +64,7 @@ button {
 legend {
 	font-weight: 500;
 	padding-top: .5em;
-	border-top: 2px solid #679cb3;
+	border-top: 2px solid #485B45;
 	margin-bottom: 1.125em;
 }
 
@@ -86,15 +89,16 @@ input {
 	font-size: 1em;
 	font-weight: 500;
 	padding: .8em;
-	background: #c1deeb;
-	border: 2px solid #c1deeb;
+	background: #C5D6C2;
+	border: 1px solid #C5D6C2;
 	outline: none;
+	border-radius: 10px;
 }
 
 input:focus {
 	background: #fff;
-	border-color: #5e97b0;
-	transition: border-color .4s, background-color .4s;
+	/* border-color: #485B45;
+	transition: border-color .4s, background-color .4s; */
 }
 
 input[type="checkbox"],
@@ -105,13 +109,32 @@ input[type="radio"] {
 button {
 	color: #fff;
 	padding: .55em 1.25em;
-	background: #22627e;
+	background: #3A4938;
 	margin: 1.25em 0 .5em;
 	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 2 2 2 lightgray;
 }
 
 button:hover {
-	background: #184c62;
+	background: #2D382C;
+}
+
+button:focus {
+	outline: 0;
+}
+
+button:active {
+    transform: translate(1px, 1px);
+}
+
+.error {
+	color: red; 
+	margin-top: 0;
+	font-size: 0.9em;
+	background: white;
+	border: 1px solid red;
+	padding: 0.3em
 }
 
 /* ================================= 
