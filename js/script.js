@@ -231,8 +231,8 @@ const resetCC = () => {
         .insertAfter('#payment');
 
     function validateCreditCardNum() {
-        if ($('#payment').val() === 'credit card') {    
-            if ($('#cc-num').val().length > 12 && $('#cc-num').val().length < 17 && $.isNumeric($("#cc-num").val())) {
+        if ($('#payment').val() === 'credit card') {  
+            if (/^\d{13,16}$/.test($('#cc-num').val())) {  
                 $('#errCC').hide();
                 $('#cc-num').css('border', '');
                 return true;
@@ -265,7 +265,7 @@ const resetCC = () => {
 
     function validateZipCode() {
         if ($('#payment').val() === 'credit card') {    
-            if ($('#zip').val().length === 5 && $.isNumeric($("#zip").val())) {
+            if (/^\d{5}$/.test($('#zip').val())) {
                 $('#errZip').hide();
                 $('#zip').css('border', '');
                 return true;
@@ -292,8 +292,8 @@ const resetCC = () => {
         .insertAfter('#errZip');
 
     function validateCVV() {
-        if ($('#payment').val() === 'credit card') {    
-            if ($('#cvv').val().length === 3 && $.isNumeric($("#cvv").val())) {
+        if ($('#payment').val() === 'credit card') { 
+            if (/^\d{3}$/.test($('#cvv').val())) {
                 $('#errCVV').hide();
                 $('#cvv').css('border', '');
                 return true;
