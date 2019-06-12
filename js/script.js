@@ -175,11 +175,6 @@ const resetCC = () => {
         }
     }
 
-    // real-time validation
-    $('#name').focusout(function(){
-        validateName();
-    })
-
 // email
     const $errEmail = $('<p><strong>Please enter a valid email address.</strong></p>')
         .attr('id', 'errEmail')
@@ -203,7 +198,12 @@ const resetCC = () => {
 
     // real-time validation
     $('#mail').focusout(function(){
-        validateEmail();
+        if ($('#mail').val() !== "") {
+            validateEmail()
+        } else {
+            $('#mail').css('border', '');
+            $('#errEmail').hide();
+        };
     })
 
 // activity section
@@ -253,7 +253,12 @@ const resetCC = () => {
 
     // real-time validation
     $('#cc-num').focusout(function(){
-        validateCreditCardNum();
+        if ($('#cc-num').val() !== '') {
+            validateCreditCardNum();
+        } else {
+            $('#errCC').hide();
+            $('#cc-num').css('border', '');
+        }
     })
 
 // zip code
@@ -281,7 +286,12 @@ const resetCC = () => {
 
     // real-time validation
     $('#zip').focusout(function(){
-        validateZipCode();
+        if ($('#zip').val() !== '') {
+            validateZipCode();
+        } else {
+            $('#errZip').hide();
+            $('#zip').css('border', '');
+        }
     })
 
 // cvv
@@ -309,7 +319,12 @@ const resetCC = () => {
 
     // real-time validation
     $('#cvv').focusout(function(){
+        if ($('#cvv').val() !== '') {
         validateCVV();
+        } else {
+            $('#errCVV').hide();
+            $('#cvv').css('border', '');
+    }
     })
 
 
