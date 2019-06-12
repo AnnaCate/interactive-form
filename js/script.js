@@ -157,23 +157,33 @@ const resetCC = () => {
 
 // FORM VALIDATION
 // name
-    const $errName = $('<p><strong>Name is required.</strong></p>')
+    const $errName = $('<p><strong>Valid name is required.</strong></p>')
         .attr('id', 'errName')
         .addClass('error')
         .hide()
         .insertBefore('#name');
 
     function validateName() {
-        if ($('#name').val() === '') {
-            $('#name').css('border', '1px solid red');
-            $('#errName').show();
-            return false;
-        } else {
+        if (/^[a-z][a-z\s]*$/i.test($('#name').val())) {
             $('#name').css('border', '');
             $('#errName').hide();
             return true;
+        } else {
+            $('#name').css('border', '1px solid red');
+            $('#errName').show();
+            return false;
         }
     }
+
+    // real-time validation
+    $('#name').focusout(function(){
+        if ($('#name').val() !== "") {
+            validateName()
+        } else {
+            $('#name').css('border', '');
+            $('#errName').hide();
+        };
+    });
 
 // email
     const $errEmail = $('<p><strong>Please enter a valid email address.</strong></p>')
@@ -204,7 +214,7 @@ const resetCC = () => {
             $('#mail').css('border', '');
             $('#errEmail').hide();
         };
-    })
+    });
 
 // activity section
     const $errActivities = $('<p><strong>Please select at least one activity.</strong></p>')
@@ -259,7 +269,7 @@ const resetCC = () => {
             $('#errCC').hide();
             $('#cc-num').css('border', '');
         }
-    })
+    });
 
 // zip code
     const $errZip = $('<p><strong>Please enter a valid Zip Code.</strong></p>')
@@ -292,7 +302,7 @@ const resetCC = () => {
             $('#errZip').hide();
             $('#zip').css('border', '');
         }
-    })
+    });
 
 // cvv
     const $errCVV = $('<p><strong>Please enter a valid CVV.</strong></p>')
@@ -324,8 +334,8 @@ const resetCC = () => {
         } else {
             $('#errCVV').hide();
             $('#cvv').css('border', '');
-    }
-    })
+        }
+    });
 
 
 // master validation fn
